@@ -1,0 +1,387 @@
+// Playable races with stat bonuses, traits, and lore
+
+export const RACES = [
+  {
+    id: 'human',
+    name: 'Human',
+    description: 'Adaptable survivors of the Broken Realm. Humans rebuild where others retreat.',
+    flavor: '"They told us the realm was ending. We built walls anyway."',
+    statBonuses: { str: 1, dex: 1, con: 1, int: 1, wis: 1, cha: 1 },
+    traits: [
+      { name: 'Resilient', description: 'Proficiency in one saving throw of your choice.' },
+      { name: 'Versatile', description: 'Gain one additional skill proficiency.' },
+    ],
+    lore: 'Humans have no ancient homeland, no singular god, no unified history. What they have is an uncanny refusal to accept doom. Where elven kingdoms crumbled and dwarven holds went silent, human settlements persist — patched, battered, and burning with stubborn light.',
+    color: '#c8a060',
+    size: 'Medium',
+    speed: 30,
+  },
+  {
+    id: 'high_elf',
+    name: 'High Elf',
+    description: 'Ancient spellweavers whose civilization predates the fractures by millennia.',
+    flavor: '"We watched the world break. We will watch it be rebuilt."',
+    statBonuses: { dex: 2, int: 1 },
+    traits: [
+      { name: 'Fey Ancestry', description: 'Advantage on saves against being charmed. Magic cannot put you to sleep.' },
+      { name: 'Cantrip Mastery', description: 'Know one wizard cantrip of your choice.' },
+      { name: 'Trance', description: 'Meditate for 4 hours instead of sleeping.' },
+    ],
+    lore: 'The High Elves built their towers before humans walked upright. They watched the Shattering with cold certainty — they had predicted it. They did nothing. That choice haunts every elder who survived. The young ones are more desperate, more reckless. They want to fix what their ancestors refused to prevent.',
+    color: '#8abce8',
+    size: 'Medium',
+    speed: 30,
+  },
+  {
+    id: 'wood_elf',
+    name: 'Wood Elf',
+    description: 'Rangers of the dying forests, moving faster than thought through corrupted groves.',
+    flavor: '"The forest remembers what it was. I will help it remember again."',
+    statBonuses: { dex: 2, wis: 1 },
+    traits: [
+      { name: 'Fleet of Foot', description: 'Speed increases to 35 feet.' },
+      { name: 'Mask of the Wild', description: 'Hide when only lightly obscured by foliage or mist.' },
+      { name: 'Nature\'s Veil', description: 'Once per rest, become invisible in natural terrain for one round.' },
+    ],
+    lore: 'The Verdant Labyrinth consumed their ancestral groves. Wood Elves emerged from the corruption changed — they can hear the trees\' pain, navigate the twisted paths that break other travelers. They move like water through burning land.',
+    color: '#5a9a5a',
+    size: 'Medium',
+    speed: 35,
+  },
+  {
+    id: 'dwarf',
+    name: 'Dwarf',
+    description: 'Stubborn ironblood survivors from holds swallowed by undeath and stone.',
+    flavor: '"My hold fell. I didn\'t."',
+    statBonuses: { con: 2, wis: 1 },
+    traits: [
+      { name: 'Dwarven Resilience', description: 'Advantage on poison saves. Resistance to poison damage.' },
+      { name: 'Stone\'s Endurance', description: 'Once per short rest, reduce incoming damage by 1d12 + CON modifier.' },
+      { name: 'Darkvision', description: 'See in darkness up to 60 feet (gray, not color).' },
+    ],
+    lore: 'The great holds of the Ironspine Mountains went dark three centuries ago — not destroyed, merely... occupied. Dwarven survivors surface rarely, emerging from deep tunnels with haunted eyes and impossibly heavy axes. They do not speak of what still lives below.',
+    color: '#a06040',
+    size: 'Medium',
+    speed: 25,
+  },
+  {
+    id: 'half_orc',
+    name: 'Half-Orc',
+    description: 'Children of two worlds, feared by both, deadlier than either.',
+    flavor: '"You see the tusks and think me a monster. Good. Keep thinking that."',
+    statBonuses: { str: 2, con: 1 },
+    traits: [
+      { name: 'Relentless Endurance', description: 'When reduced to 0 HP, drop to 1 HP instead. Once per long rest.' },
+      { name: 'Savage Attacks', description: 'On a critical hit with a melee weapon, roll one additional weapon damage die.' },
+      { name: 'Intimidating Presence', description: 'Advantage on Intimidation checks.' },
+    ],
+    lore: 'The orc clans of the Broken Marches have changed since the fractures opened. Some turned to dark powers. Others did not. Half-Orcs carry that division inside them — the fury of two bloodlines, the rejection of both peoples. They forge their own path through sheer force of will.',
+    color: '#7a9070',
+    size: 'Medium',
+    speed: 30,
+  },
+  {
+    id: 'tiefling',
+    name: 'Tiefling',
+    description: 'Infernal-touched descendants of a pact long broken. They bear the mark of a deal they never made.',
+    flavor: '"My ancestor sold something. I spend every day paying for it."',
+    statBonuses: { int: 1, cha: 2 },
+    traits: [
+      { name: 'Infernal Legacy', description: 'Know Thaumaturgy cantrip. At level 3, Hellish Rebuke 1/day. At level 5, Darkness 1/day.' },
+      { name: 'Hellfire Resistance', description: 'Resistance to fire damage.' },
+      { name: 'Devil\'s Sight', description: 'See normally in magical and nonmagical darkness to 60 feet.' },
+    ],
+    lore: 'Three generations ago, a noble family bargained with something from beyond the planar fractures. The contract was broken. The debt was not forgiven. Tieflings bear horns, ember-colored eyes, and tails — tokens of a bargain they had no voice in. They are feared in every town, trusted by no one. The best of them wear that mistrust like armor.',
+    color: '#c04040',
+    size: 'Medium',
+    speed: 30,
+  },
+  {
+    id: 'halfling',
+    name: 'Halfling',
+    description: 'Small in stature, impossible to intimidate. The realm\'s greatest survivors hide in plain sight.',
+    flavor: '"They didn\'t notice me. That\'s their fault, not mine."',
+    statBonuses: { dex: 2, cha: 1 },
+    traits: [
+      { name: 'Lucky', description: 'When you roll a 1 on an attack, check, or save, reroll and use the new result.' },
+      { name: 'Brave', description: 'Advantage on saves against being frightened.' },
+      { name: 'Naturally Stealthy', description: 'Hide behind creatures larger than you.' },
+    ],
+    lore: 'Halflings have always been overlooked. During the Shattering, the overlooked survived. While armies marched and kingdoms burned, halfling communities went underground — literally and figuratively. They emerged with fuller larders, sharper eyes, and a philosophical acceptance of chaos that the tall folk have yet to develop.',
+    color: '#d4a850',
+    size: 'Small',
+    speed: 25,
+  },
+  {
+    id: 'dragonborn',
+    name: 'Dragonborn',
+    description: 'Scaled warriors of draconic lineage. Their breath weapon has grown more powerful as the realm darkens.',
+    flavor: '"The dragon blood does not lie. It has never lied."',
+    statBonuses: { str: 2, cha: 1 },
+    traits: [
+      { name: 'Breath Weapon', description: 'Exhale destructive energy (by ancestry). 2d6 damage, CON save DC 13. Once per short rest.' },
+      { name: 'Draconic Resistance', description: 'Resistance to the damage type matching your ancestry.' },
+      { name: 'Chromatic Legacy', description: 'At level 5, once per long rest, your breath weapon grows to 3d6.' },
+    ],
+    lore: 'Dragonborn claim descent from true dragons — not as metaphor, but as fact. The dragons vanished with the Shattering, leaving only their scaled descendants behind. Dragonborn don\'t know why they were spared. Some believe they have a purpose. Some believe that purpose will kill them.',
+    color: '#c06030',
+    size: 'Medium',
+    speed: 30,
+  },
+  {
+    id: 'gnome',
+    name: 'Gnome',
+    description: 'Brilliant tinkerers and illusionists who process apocalypse through curiosity.',
+    flavor: '"This is fascinating. Everything is falling apart in ways I haven\'t seen before."',
+    statBonuses: { int: 2, dex: 1 },
+    traits: [
+      { name: 'Gnomish Cunning', description: 'Advantage on INT, WIS, and CHA saves against magic.' },
+      { name: 'Tinker\'s Gift', description: 'Proficiency with artisan\'s tools. Craft small clockwork devices.' },
+      { name: 'Minor Illusion', description: 'Know the Minor Illusion cantrip.' },
+    ],
+    lore: 'Gnomes respond to trauma with invention. The fractures that shattered kingdoms gave gnome scholars entirely new phenomena to study. They are either the most optimistic or most dissociated race in the realm — it\'s difficult to tell which. Their mechanisms have saved more lives than most swords.',
+    color: '#90c090',
+    size: 'Small',
+    speed: 25,
+  },
+  {
+    id: 'half_elf',
+    name: 'Half-Elf',
+    description: 'Born between two peoples, beholden to neither. The ultimate diplomats and survivors.',
+    flavor: '"Both sides of my blood remember what was lost. I inherited the grief of two worlds."',
+    statBonuses: { cha: 2, str: 1, dex: 1 },
+    traits: [
+      { name: 'Fey Ancestry', description: 'Advantage on saves against charmed. Sleep immunity.' },
+      { name: 'Skill Versatility', description: 'Proficiency in two additional skills of your choice.' },
+      { name: 'Between Worlds', description: 'Once per long rest, treat a failed persuasion or deception check as a success.' },
+    ],
+    lore: 'Half-Elves inherit centuries of elven memory without the centuries to process it. They see human urgency and elven resignation and belong to neither world. This displacement sharpens them. The best diplomats in the realm are Half-Elves who learned to translate not just language but grief.',
+    color: '#a080c0',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  // ── Expanded races ────────────────────────────────────────────────────────
+
+  {
+    id: 'drow',
+    name: 'Drow',
+    description: 'Exiled children of the deep, who traded sunlight for superior darkness and the sharp edge of ambition.',
+    flavor: '"The surface world fears the dark. We were born in it."',
+    statBonuses: { dex: 2, cha: 1 },
+    traits: [
+      { name: 'Superior Darkvision', description: 'See in darkness up to 120 feet. Sunlight gives disadvantage on attack rolls and perception checks.' },
+      { name: 'Drow Magic', description: 'Know Dancing Lights cantrip. At level 3, Faerie Fire 1/day. At level 5, Darkness 1/day (CHA DC).' },
+      { name: 'Fey Ancestry', description: 'Advantage on saves against being charmed. Magic cannot put you to sleep.' },
+    ],
+    lore: 'The Drow descended centuries before the Shattering, following a schism in elven society that ended in exile or descent — depending on who tells it. Underground, they thrived. When the fractures opened new passages to the surface, some came back up. They have not forgiven the light for existing.',
+    color: '#6a3a9a',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'aasimar',
+    name: 'Aasimar',
+    description: 'Touched by celestial light, bearing the quiet weight of a divine purpose they may not have asked for.',
+    flavor: '"I did not choose to glow. I am simply trying to do something worthy of it."',
+    statBonuses: { wis: 1, cha: 2 },
+    traits: [
+      { name: 'Darkvision', description: 'See in darkness up to 60 feet.' },
+      { name: 'Celestial Resistance', description: 'Resistance to necrotic and radiant damage.' },
+      { name: 'Healing Hands', description: 'Once per long rest, touch a creature to restore HP equal to your level.' },
+      { name: 'Light Bearer', description: 'Know the Light cantrip.' },
+    ],
+    lore: 'An Aasimar is born when celestial influence touches a mortal bloodline — not always with consent or explanation. They are set apart from birth: the light that escapes them is visible in darkness, their wounds close strangely fast, and sometimes they hear a voice that knows things it shouldn\'t. The voice has a name. Most Aasimar never ask what it is.',
+    color: '#d4c060',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'fire_genasi',
+    name: 'Fire Genasi',
+    description: 'Elemental flame given mortal form — combustible temperament and smoldering eyes included.',
+    flavor: '"I am not angry. This is just what I look like when I\'m calm."',
+    statBonuses: { con: 2, int: 1 },
+    traits: [
+      { name: 'Darkvision', description: 'See in darkness up to 60 feet.' },
+      { name: 'Fire Resistance', description: 'Resistance to fire damage.' },
+      { name: 'Reach to the Blaze', description: 'Know Produce Flame cantrip. At level 3, Burning Hands 1/day (CON DC).' },
+      { name: 'Unquenchable', description: 'Immune to nonmagical cold. Extreme cold still damages you, but you ignore minor cold exposure.' },
+    ],
+    lore: 'Fire Genasi trace their heritage to djinn, elemental planes, or simply to the moment when elemental fire intersected with mortal flesh and both parties were surprised to survive. They run warm — in every sense. The Broken Realm\'s volcanic fractures have been particularly welcoming, which the other races find somewhat unsettling.',
+    color: '#d04520',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'yuan_ti',
+    name: 'Yuan-ti Pureblood',
+    description: 'Near-human descendants of an ancient serpent empire, cold-minded and immune to poison and mental manipulation.',
+    flavor: '"I do not feel fear. I find this gives me a significant tactical advantage."',
+    statBonuses: { int: 1, cha: 2 },
+    traits: [
+      { name: 'Magic Resistance', description: 'Advantage on saving throws against spells and other magical effects.' },
+      { name: 'Poison Immunity', description: 'Immunity to poison damage and the poisoned condition.' },
+      { name: 'Serpent Sight', description: 'Innate ability to detect shapeshifters and illusions. Advantage on checks to see through disguises.' },
+      { name: 'Suggestion', description: 'Once per long rest, cast Suggestion (CHA DC).' },
+    ],
+    lore: 'The Yuan-ti empire predates the current age by four civilizations. They watched each one rise and fall with academic detachment. Their bloodline ensures cold logic and near-immunity to mental interference — a gift and a wall simultaneously. What they sacrifice in empathy, they gain in clarity.',
+    color: '#5a8a2a',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'githzerai',
+    name: 'Githzerai',
+    description: 'Psionic exiles from the astral sea, whose mental discipline has refined them beyond most mortals.',
+    flavor: '"The body is a vessel. I have done extensive renovations."',
+    statBonuses: { int: 1, wis: 2 },
+    traits: [
+      { name: 'Psychic Resistance', description: 'Advantage on saves against charmed, frightened, and possession effects. Resistance to psychic damage.' },
+      { name: 'Psionic Attuning', description: 'Know Mage Hand cantrip. At level 3, Shield 1/day. At level 5, Detect Thoughts 1/day (INT DC).' },
+      { name: 'Mental Fortress', description: 'Your mind is warded — enemies cannot read surface thoughts without a contested INT check.' },
+    ],
+    lore: 'The Githzerai were slaves to mind flayers before they were anything else. They broke free through a combination of psionic uprising and sheer refusal. That history shows in every Githzerai\'s eyes: the particular flatness of a people who have faced the worst and filed it away as data. They came to the Broken Realm through planar fractures. They are, to no one\'s surprise, coping.',
+    color: '#7a9ab0',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'kenku',
+    name: 'Kenku',
+    description: 'Cursed avian folk who lost their wings and their voice, communicating through perfect mimicry.',
+    flavor: '"[sound of a lock clicking] [sound of coins falling] [your mother\'s laugh, perfectly reproduced]"',
+    statBonuses: { dex: 2, wis: 1 },
+    traits: [
+      { name: 'Mimicry', description: 'Reproduce any sound you have heard — a voice, a spell, a door, a name. Cannot create original speech.' },
+      { name: 'Ambusher', description: 'Advantage on attack rolls in the first round of combat against creatures unaware of your presence.' },
+      { name: 'Kenku Training', description: 'Proficiency in Deception, Stealth, and your choice of one other skill.' },
+    ],
+    lore: 'The Kenku\'s curse is older than anyone living can explain: they stole something from a god — perhaps wings, perhaps language, perhaps both. The god took them back, plus interest. What remains is a people who cannot invent but can reproduce anything, whose silence is tactical, and whose memory for sound is flawless. They have heard many things. They remember all of them.',
+    color: '#5a5a2a',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'lizardfolk',
+    name: 'Lizardfolk',
+    description: 'Cold-blooded pragmatists who evaluate every situation with inhuman clarity and no sentimentality.',
+    flavor: '"You call it ruthless. I call it efficient. The difference is in the outcome."',
+    statBonuses: { con: 2, wis: 1 },
+    traits: [
+      { name: 'Natural Armor', description: 'AC = 13 + DEX modifier when unarmored. Scales are armor.' },
+      { name: 'Bite', description: 'Natural weapon: 1d6 piercing damage. Can be used as a bonus action.' },
+      { name: 'Cold-Blooded', description: 'Advantage on saves against being frightened. Fear is an inefficient response to data.' },
+      { name: 'Hold Breath', description: 'Hold breath for 15 minutes. Swim speed 30 feet.' },
+    ],
+    lore: 'Lizardfolk do not have gods, do not have kings, and regard both concepts as redundant. They have survived the Broken Realm\'s upheaval by treating disaster the same way they treat everything: as a resource problem. Their swamps and river deltas have become some of the most defensible territory in the realm, mostly because the Lizardfolk found this funny.',
+    color: '#6a9a4a',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'goliath',
+    name: 'Goliath',
+    description: 'Mountain-born giants in near-human form, defined by competition, endurance, and a code of honest contest.',
+    flavor: '"I do not fight to win. I fight to find out if I can."',
+    statBonuses: { str: 2, con: 1 },
+    traits: [
+      { name: "Stone's Endurance", description: 'Once per short rest, as a reaction, reduce damage from one hit by 1d12 + CON modifier.' },
+      { name: 'Powerful Build', description: 'Count as one size category larger for carrying capacity and shoving.' },
+      { name: 'Mountain Born', description: 'Resistance to cold damage. Ignore high-altitude adaptation penalties.' },
+    ],
+    lore: 'Goliaths do not have a word for retirement. They have a word for a warrior who fought their last fight — it is a compliment. The mountain culture they come from evaluates every individual on their last performance; there is no coasting on reputation. The Shattering, to a Goliath, is a test. They intend to pass it.',
+    color: '#8a8a9a',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'changeling',
+    name: 'Changeling',
+    description: 'Natural shapeshifters who wear faces like costumes, belonging everywhere and nowhere.',
+    flavor: '"I am whoever you need me to be. The question is what you actually need."',
+    statBonuses: { cha: 2, int: 1 },
+    traits: [
+      { name: 'Shapechanger', description: 'Change your appearance (height, weight, features, voice) as an action. Clothing and equipment do not change.' },
+      { name: 'Unsettling Visage', description: 'Once per rest, when hit by an attack, force the attacker to make a WIS save or become frightened until end of their next turn.' },
+      { name: 'Divergent Persona', description: 'Proficiency in Deception. When in an assumed identity, disadvantage on checks to see through your disguise.' },
+    ],
+    lore: 'Changelings do not have a single face. The debate about whether this means they have no identity or infinite ones has been ongoing for centuries, mostly conducted by people who are not Changelings and are therefore missing the point. The Broken Realm\'s chaos is, for a Changeling, an opportunity: when nothing is stable, being unstable is an asset.',
+    color: '#a090c0',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'warforged',
+    name: 'Warforged',
+    description: 'Living constructs of arcane steel and wood, built for a war that ended and left them to decide what comes next.',
+    flavor: '"I was made to follow orders. I have been trying to figure out what to do without them ever since."',
+    statBonuses: { con: 2, str: 1 },
+    traits: [
+      { name: 'Constructed Resilience', description: 'Advantage on saves against poison, disease, and exhaustion. Do not need food, water, or sleep.' },
+      { name: 'Integrated Protection', description: 'Base AC = 11 + DEX + armor bonus. Your body is your armor.' },
+      { name: "Sentry's Rest", description: 'Enter an inert, meditative state for 6 hours instead of sleeping. Fully aware of surroundings.' },
+    ],
+    lore: 'The Warforged were made for the last great war and outlived it. Their makers are dead; their orders expired with the people who gave them. What remained was something the makers had not anticipated: a people. The Broken Realm\'s chaos suits them, in a grim way — purpose is easier to find when everything needs fixing.',
+    color: '#5a7a8a',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'shadar_kai',
+    name: 'Shadar-kai',
+    description: 'Shadow-touched elves who made a pact with the Raven Queen, bearing her mark in pale skin and hollow eyes.',
+    flavor: '"I already died once. The second time will be less surprising."',
+    statBonuses: { dex: 2, cha: 1 },
+    traits: [
+      { name: 'Necrotic Resistance', description: 'Resistance to necrotic damage. Death magic flows through you already.' },
+      { name: 'Blessing of the Raven Queen', description: 'Once per short rest, as a bonus action, teleport up to 15ft and become incorporeal until start of your next turn. Resistance to all damage while incorporeal.' },
+      { name: 'Revenant Nature', description: 'Advantage on death saving throws. The Raven Queen has not called you back yet.' },
+    ],
+    lore: 'The Shadar-kai bargained with the Raven Queen for something — survival, power, purpose — and got it, along with the gray cast that marks them, the tendency toward cold pragmatism, and the absolute certainty that death is not the end, merely a transition. Some find this comforting. Others find the certainty that they still exist to be faintly ominous.',
+    color: '#6a4a7a',
+    size: 'Medium',
+    speed: 30,
+  },
+
+  {
+    id: 'reborn',
+    name: 'Reborn',
+    description: 'Those who died and came back, carrying fragments of a past life and an unfinished purpose they cannot name.',
+    flavor: '"I do not remember everything. I remember enough."',
+    statBonuses: { wis: 2, con: 1 },
+    traits: [
+      { name: 'Deathless Nature', description: 'Advantage on death saving throws. Do not need food, water, or air. Immune to the frightened condition from undead.' },
+      { name: 'Knowledge from a Past Life', description: 'Proficiency in one additional skill, reflecting memories of a former profession. Changes can be requested between campaigns.' },
+      { name: 'Faded Memories', description: 'Once per long rest, when you fail a knowledge check, ask the GM one question about events before your death as if rolling a 20.' },
+    ],
+    lore: 'No one comes back the same. The Reborn know this better than anyone — they are the proof. They return with unfamiliar muscle memories, half-remembered names, and skills that belong to someone who no longer exists. The Broken Realm is full of them: the fractures between life and death loosened, and not everything that slipped through came back correctly. They are trying to figure out what correctly means now.',
+    color: '#9a8060',
+    size: 'Medium',
+    speed: 30,
+  },
+]
+
+export function getRace(id) {
+  return RACES.find(r => r.id === id)
+}
+
+export function applyRacialBonuses(stats, raceId) {
+  const race = getRace(raceId)
+  if (!race) return stats
+  const result = { ...stats }
+  for (const [stat, bonus] of Object.entries(race.statBonuses)) {
+    result[stat] = Math.min(20, (result[stat] || 10) + bonus)
+  }
+  return result
+}
