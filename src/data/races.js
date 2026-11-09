@@ -188,9 +188,8 @@ export const RACES = [
     statBonuses: { wis: 1, cha: 2 },
     traits: [
       { name: 'Darkvision', description: 'See in darkness up to 60 feet.' },
-      { name: 'Celestial Resistance', description: 'Resistance to necrotic and radiant damage.' },
+      { name: 'Celestial Resistance', description: 'Resistance to radiant damage. The light that runs through you deflects its own kind.' },
       { name: 'Healing Hands', description: 'Once per long rest, touch a creature to restore HP equal to your level.' },
-      { name: 'Light Bearer', description: 'Know the Light cantrip.' },
     ],
     lore: 'An Aasimar is born when celestial influence touches a mortal bloodline — not always with consent or explanation. They are set apart from birth: the light that escapes them is visible in darkness, their wounds close strangely fast, and sometimes they hear a voice that knows things it shouldn\'t. The voice has a name. Most Aasimar never ask what it is.',
     color: '#d4c060',
@@ -208,7 +207,7 @@ export const RACES = [
       { name: 'Darkvision', description: 'See in darkness up to 60 feet.' },
       { name: 'Fire Resistance', description: 'Resistance to fire damage.' },
       { name: 'Reach to the Blaze', description: 'Know Produce Flame cantrip. At level 3, Burning Hands 1/day (CON DC).' },
-      { name: 'Unquenchable', description: 'Immune to nonmagical cold. Extreme cold still damages you, but you ignore minor cold exposure.' },
+      { name: 'Fire Native', description: 'Your fire spells and abilities deal +1 damage per die. Fire is not an element to you — it is a mother tongue.' },
     ],
     lore: 'Fire Genasi trace their heritage to djinn, elemental planes, or simply to the moment when elemental fire intersected with mortal flesh and both parties were surprised to survive. They run warm — in every sense. The Broken Realm\'s volcanic fractures have been particularly welcoming, which the other races find somewhat unsettling.',
     color: '#d04520',
@@ -223,7 +222,7 @@ export const RACES = [
     flavor: '"I do not feel fear. I find this gives me a significant tactical advantage."',
     statBonuses: { int: 1, cha: 2 },
     traits: [
-      { name: 'Magic Resistance', description: 'Advantage on saving throws against spells and other magical effects.' },
+      { name: 'Cold Mind', description: 'Advantage on saving throws against enchantment and illusion spells. The serpent bloodline resists mental manipulation.' },
       { name: 'Poison Immunity', description: 'Immunity to poison damage and the poisoned condition.' },
       { name: 'Serpent Sight', description: 'Innate ability to detect shapeshifters and illusions. Advantage on checks to see through disguises.' },
       { name: 'Suggestion', description: 'Once per long rest, cast Suggestion (CHA DC).' },
@@ -293,7 +292,7 @@ export const RACES = [
     flavor: '"I do not fight to win. I fight to find out if I can."',
     statBonuses: { str: 2, con: 1 },
     traits: [
-      { name: "Stone's Endurance", description: 'Once per short rest, as a reaction, reduce damage from one hit by 1d12 + CON modifier.' },
+      { name: "Mountain's Endurance", description: 'Once per short rest, as a reaction, reduce damage from one hit by 1d12 + CON modifier.' },
       { name: 'Powerful Build', description: 'Count as one size category larger for carrying capacity and shoving.' },
       { name: 'Mountain Born', description: 'Resistance to cold damage. Ignore high-altitude adaptation penalties.' },
     ],
@@ -345,7 +344,7 @@ export const RACES = [
     statBonuses: { dex: 2, cha: 1 },
     traits: [
       { name: 'Necrotic Resistance', description: 'Resistance to necrotic damage. Death magic flows through you already.' },
-      { name: 'Blessing of the Raven Queen', description: 'Once per short rest, as a bonus action, teleport up to 15ft and become incorporeal until start of your next turn. Resistance to all damage while incorporeal.' },
+      { name: 'Blessing of the Raven Queen', description: 'Once per long rest, as a bonus action, teleport up to 15ft and become incorporeal until start of your next turn. Resistance to all damage while incorporeal.' },
       { name: 'Revenant Nature', description: 'Advantage on death saving throws. The Raven Queen has not called you back yet.' },
     ],
     lore: 'The Shadar-kai bargained with the Raven Queen for something — survival, power, purpose — and got it, along with the gray cast that marks them, the tendency toward cold pragmatism, and the absolute certainty that death is not the end, merely a transition. Some find this comforting. Others find the certainty that they still exist to be faintly ominous.',

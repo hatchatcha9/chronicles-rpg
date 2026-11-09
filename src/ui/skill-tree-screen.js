@@ -3,6 +3,7 @@
 
 import { game } from '../game/engine.js'
 import { getSkillTree } from '../data/skill-trees.js'
+import { getFullSkillTree } from '../data/skill-tree-combos.js'
 import { gi, I } from '../icons.js'
 
 const TIER_COLORS = ['#c8962a', '#8b4a9a', '#c84040']
@@ -23,7 +24,8 @@ export function mountSkillTree(container) {
     || state.character?.class
     || (state.character?.className || '').toLowerCase().replace(/\s+/g, '_')
 
-  const rawTree = getSkillTree(classId)
+  const raceId = state.character?.raceId || null
+  const rawTree = getFullSkillTree(classId, raceId)
   const returnTo = state.skillTreeReturn || state.prevScreen || 'hub'
 
   // Transform flat-node format { nodes[], paths[], pathColors[] } → { tiers[] } for renderer

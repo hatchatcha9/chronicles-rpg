@@ -421,7 +421,6 @@ export const SKILL_TREES = {
       },
     ],
   },
-}
 
   // ── Skill trees for expanded classes ─────────────────────────────────────
 
@@ -529,7 +528,7 @@ export const SKILL_TREES = {
       {
         name: 'Mastery',
         nodes: [
-          { id: 'ch_rewind', name: 'Rewind', description: 'Once per long rest, undo your last action — reset HP, spell slots, and position to what they were one full round ago.', tier: 2, requires: ['ch_temporal_charges'], type: 'active', uses: 1 },
+          { id: 'ch_rewind', name: 'Rewind', description: 'Once per long rest, undo your last action — you lose the action, spell slot (if used), and movement spent on it, as if it never happened. HP changes from that action are reversed.', tier: 2, requires: ['ch_temporal_charges'], type: 'active', uses: 1 },
           { id: 'ch_haste_self', name: 'Temporal Acceleration', description: 'Cast Haste on yourself without concentration (CHA mod, lasts until start of your next turn). Movement is an echo.', tier: 2, requires: ['ch_temporal_sight'], type: 'active', uses: 1 },
           { id: 'ch_time_lock', name: 'Time Lock', description: 'Spend a Temporal Charge to freeze a creature in time for 1 round (auto-fail saves, cannot act). CON save to resist, DC = INT + 8.', tier: 2, requires: ['ch_slow_field'], type: 'active' },
         ],
@@ -537,9 +536,9 @@ export const SKILL_TREES = {
       {
         name: 'Legend',
         nodes: [
-          { id: 'ch_time_stop', name: 'Time Stop', description: 'Once per long rest: take three additional turns in a row while time is frozen. Other creatures and effects are suspended.', tier: 3, requires: ['ch_rewind', 'ch_time_lock'], type: 'active', uses: 1 },
-          { id: 'ch_paradox', name: 'Temporal Paradox', description: 'Once per combat, duplicate your previous round — repeat every action you took (attacks, spells, movement) exactly.', tier: 3, requires: ['ch_haste_self'], type: 'active', uses: 1 },
-          { id: 'ch_outside_time', name: 'Outside Time', description: 'You cannot be surprised. Reactions can be used at any point in a round, not just on your turn.', tier: 3, requires: ['ch_time_stop', 'ch_paradox'], type: 'passive' },
+          { id: 'ch_time_stop', name: 'Time Stop', description: 'Once per long rest: take one additional turn while time is briefly frozen. Other creatures cannot act or react during this turn. Movement, attack, or one spell only.', tier: 3, requires: ['ch_rewind', 'ch_time_lock'], type: 'active', uses: 1 },
+          { id: 'ch_paradox', name: 'Temporal Echo', description: 'Once per combat, duplicate one action you took this round (an attack roll or a cantrip, not a leveled spell). The echo resolves immediately after the original.', tier: 3, requires: ['ch_haste_self'], type: 'active', uses: 1 },
+          { id: 'ch_outside_time', name: 'Outside Time', description: 'You cannot be surprised. Once per round, you may use a reaction during an enemy\'s turn as if you had already declared it — before they complete their action.', tier: 3, requires: ['ch_time_stop', 'ch_paradox'], type: 'passive' },
         ],
       },
     ],
@@ -719,7 +718,7 @@ export const SKILL_TREES = {
         nodes: [
           { id: 'wa_sovereign_ground', name: 'Sovereign Ground', description: "Nature's Mark now applies to up to WIS modifier creatures simultaneously. The Warden claims the field.", tier: 3, requires: ['wa_bulwark', 'wa_primal_resilience'], type: 'passive' },
           { id: 'wa_treant_form', name: 'Treant Aspect', description: 'Once per long rest, grow bark-covered and 8ft tall for 1 minute: +20 max HP, +3 AC, attacks deal +1d8 bludgeoning.', tier: 3, requires: ['wa_ground_lock'], type: 'active', uses: 1 },
-          { id: 'wa_immortal_covenant', name: 'Immortal Covenant', description: "While any ally within 30ft is at 0 HP, you cannot be reduced below 1 HP. The covenant will not let its guardian fall while others need it.", tier: 3, requires: ['wa_sovereign_ground', 'wa_treant_form'], type: 'passive' },
+          { id: 'wa_immortal_covenant', name: 'Immortal Covenant', description: "While within 15ft of an ally at 0 HP, reduce one instance of incoming damage per round to 1. The covenant will not let its guardian fall while others need it.", tier: 3, requires: ['wa_sovereign_ground', 'wa_treant_form'], type: 'passive' },
         ],
       },
     ],
@@ -786,15 +785,9 @@ export const SKILL_TREES = {
   },
 }
 
-export function getSkillTree(classId, raceId = null) {
-  const baseTree = SKILL_TREES[classId] || null
-  if (!raceId || !baseTree) return baseTree
-
-  // Lazy-import combo trees to avoid circular deps at module level
-  try {
-    const { mergeComboIntoTree } = require('./skill-tree-combos.js')
-    return mergeComboIntoTree(baseTree, raceId, classId)
-  } catch {
-    return baseTree
-  }
+export function getSkillTree(classId) {
+  return SKILL_TREES[classId] || null
 }
+
+// Import combo trees lazily via skill-tree-screen.js (avoids circular deps).
+// skill-tree-screen.js calls getFullSkillTree which is defined in skill-tree-combos.js.
